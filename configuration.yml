@@ -1,0 +1,606 @@
+#
+# configuration.yml
+#
+host: '[FQDN/IP OF MQTT SERVER]'    # MQTT Server host name
+port: 8883                          # MQTT Server port number
+clientid: 'rego'                    # Client ID to use with MQTT broker
+
+username: '[INSERT_YOUR_MQTT_USERNAME_HERE]'    # Username for the MQTT client
+password: '[INSERT_YOUR_MQTT_PASSWORD_HERE]'    # Password for the MQTT client
+
+availability_topic: 'rego/LWT'  # Which topic is used for device availability
+
+# Contains mappings between ID numbers and names, as well as what capabilities the sensor has
+entities:
+  - address: 0x0000
+    type: sysreg
+    valtype: fraction
+    pollinterval: 3600
+    discovery_topic: 'homeassistant/sensor/4o86/config'
+    discovery_payload:
+      avty_t: 'rego/LWT'
+      name: 'Inställning värmekurva'
+      dev:
+        identifiers:
+          - 009121
+        name: "Rego (heatpump) interface" # Only required once per device
+      stat_t: 'rego/0x0000/state'
+      uniq_id: "4o86"
+  - address: 0x0001
+    type: sysreg
+    valtype: fraction
+    pollinterval: 3600
+    discovery_topic: 'homeassistant/sensor/sdOn/config'
+    discovery_payload:
+      avty_t: 'rego/LWT'
+      name: 'Inställning värmekurva justering'
+      dev:
+        identifiers:
+          - 009121
+      stat_t: 'rego/0x0001/state'
+      uniq_id: "sdOn"
+  - address: 0x0002
+    type: sysreg
+    valtype: temperature
+    pollinterval: 3600
+    discovery_topic: 'homeassistant/sensor/81nV/config'
+    discovery_payload:
+      avty_t: 'rego/LWT'
+      name: 'Heat curve coupling diff'
+      dev:
+        identifiers:
+          - 009121
+      dev_cla: 'temperature'
+      stat_t: 'rego/0x0002/state'
+      unit_of_meas: "°C"
+      uniq_id: "81nV"
+  - address: 0x0008
+    type: sysreg
+    valtype: fraction
+    pollinterval: 3600
+    discovery_topic: 'homeassistant/sensor/96gW/config'
+    discovery_payload:
+      avty_t: 'rego/LWT'
+      name: 'Kurvjustering vid -35 grader ute'
+      dev:
+        identifiers:
+          - 009121
+      stat_t: 'rego/0x0008/state'
+      uniq_id: "96gW"
+  - address: 0x000a
+    type: sysreg
+    valtype: fraction
+    pollinterval: 3600
+    discovery_topic: 'homeassistant/sensor/R74V/config'
+    discovery_payload:
+      avty_t: 'rego/LWT'
+      name: 'Kurvjustering vid -30 grader ute'
+      dev:
+        identifiers:
+          - 009121
+      stat_t: 'rego/0x000a/state'
+      uniq_id: "R74V"
+  - address: 0x000c
+    type: sysreg
+    valtype: fraction
+    pollinterval: 3600
+    discovery_topic: 'homeassistant/sensor/UaYw/config'
+    discovery_payload:
+      avty_t: 'rego/LWT'
+      name: 'Kurvjustering vid -25 grader ute'
+      dev:
+        identifiers:
+          - 009121
+      stat_t: 'rego/0x000c/state'
+      uniq_id: "UaYw"
+  - address: 0x000e
+    type: sysreg
+    valtype: fraction
+    pollinterval: 3600
+    discovery_topic: 'homeassistant/sensor/m3xe/config'
+    discovery_payload:
+      avty_t: 'rego/LWT'
+      name: 'Kurvjustering vid -20 grader ute'
+      dev:
+        identifiers:
+          - 009121
+      stat_t: 'rego/0x000e/state'
+      uniq_id: "m3xe"
+  - address: 0x0010
+    type: sysreg
+    valtype: fraction
+    pollinterval: 3600
+    discovery_topic: 'homeassistant/sensor/6KW4/config'
+    discovery_payload:
+      avty_t: 'rego/LWT'
+      name: 'Kurvjustering vid -15 grader ute'
+      dev:
+        identifiers:
+          - 009121
+      stat_t: 'rego/0x0010/state'
+      uniq_id: "6KW4"
+  - address: 0x0012
+    type: sysreg
+    valtype: fraction
+    pollinterval: 3600
+    discovery_topic: 'homeassistant/sensor/oD86/config'
+    discovery_payload:
+      avty_t: 'rego/LWT'
+      name: 'Kurvjustering vid -10 grader ute'
+      dev:
+        identifiers:
+          - 009121
+      stat_t: 'rego/0x0012/state'
+      uniq_id: "oD86"
+  - address: 0x0014
+    type: sysreg
+    valtype: fraction
+    pollinterval: 3600
+    discovery_topic: 'homeassistant/sensor/Nr88/config'
+    discovery_payload:
+      avty_t: 'rego/LWT'
+      name: 'Kurvjustering vid -5 grader ute'
+      dev:
+        identifiers:
+          - 009121
+      stat_t: 'rego/0x0014/state'
+      uniq_id: "Nr88"
+  - address: 0x0016
+    type: sysreg
+    valtype: fraction
+    pollinterval: 3600
+    discovery_topic: 'homeassistant/sensor/W9Hb/config'
+    discovery_payload:
+      avty_t: 'rego/LWT'
+      name: 'Kurvjustering vid 0 grader ute'
+      dev:
+        identifiers:
+          - 009121
+      stat_t: 'rego/0x0016/state'
+      uniq_id: "W9Hb"
+  - address: 0x0018
+    type: sysreg
+    valtype: fraction
+    pollinterval: 3600
+    discovery_topic: 'homeassistant/sensor/7F22/config'
+    discovery_payload:
+      avty_t: 'rego/LWT'
+      name: 'Kurvjustering vid 5 grader ute'
+      dev:
+        identifiers:
+          - 009121
+      stat_t: 'rego/0x0018/state'
+      uniq_id: "7F22"
+  - address: 0x001a
+    type: sysreg
+    valtype: fraction
+    pollinterval: 3600
+    discovery_topic: 'homeassistant/sensor/uYV6/config'
+    discovery_payload:
+      avty_t: 'rego/LWT'
+      name: 'Kurvjustering vid 10 grader ute'
+      dev:
+        identifiers:
+          - 009121
+      stat_t: 'rego/0x001a/state'
+      uniq_id: "uYV6"
+  - address: 0x001c
+    type: sysreg
+    valtype: fraction
+    pollinterval: 3600
+    discovery_topic: 'homeassistant/sensor/J0dL/config'
+    discovery_payload:
+      avty_t: 'rego/LWT'
+      name: 'Kurvjustering vid 15 grader ute'
+      dev:
+        identifiers:
+          - 009121
+      stat_t: 'rego/0x001c/state'
+      uniq_id: "J0dL"
+  - address: 0x001e
+    type: sysreg
+    valtype: fraction
+    pollinterval: 3600
+    discovery_topic: 'homeassistant/sensor/Eu24/config'
+    discovery_payload:
+      avty_t: 'rego/LWT'
+      name: 'Kurvjustering vid 20 grader ute'
+      dev:
+        identifiers:
+          - 009121
+      stat_t: 'rego/0x001e/state'
+      uniq_id: "Eu24"
+  - address: 0x0021
+    type: sysreg
+    valtype: temperature
+    pollinterval: 3600
+    discovery_topic: 'homeassistant/sensor/69q5/config'
+    discovery_payload:
+      avty_t: 'rego/LWT'
+      name: 'Inställning rumstemperatur'
+      dev:
+        identifiers:
+          - 009121
+      dev_cla: 'temperature'
+      stat_t: 'rego/0x0021/state'
+      unit_of_meas: "°C"
+      uniq_id: "69q5"
+  - address: 0x0022
+    type: sysreg
+    valtype: fraction
+    pollinterval: 3600
+    discovery_topic: 'homeassistant/sensor/g8lT/config'
+    discovery_payload:
+      avty_t: 'rego/LWT'
+      name: 'Inställning rumsgivarpåverkan'
+      dev:
+        identifiers:
+          - 009121
+      stat_t: 'rego/0x0022/state'
+      uniq_id: "g8lT"
+  - address: 0x002b
+    type: sysreg
+    valtype: temperature
+    pollinterval: 3600
+    discovery_topic: 'homeassistant/sensor/Vvc6/config'
+    discovery_payload:
+      avty_t: 'rego/LWT'
+      name: 'Styrning GT3 målvärde'
+      dev:
+        identifiers:
+          - 009121
+      dev_cla: 'temperature'
+      stat_t: 'rego/0x002b/state'
+      unit_of_meas: "°C"
+      uniq_id: "Vvc6"
+  - address: 0x006c
+    type: sysreg
+    valtype: fraction
+    pollinterval: 3600
+    discovery_topic: 'homeassistant/sensor/puF2/config'
+    discovery_payload:
+      avty_t: 'rego/LWT'
+      name: 'Styrning tilläggsvärme %'
+      dev:
+        identifiers:
+          - 009121
+      stat_t: 'rego/0x006c/state'
+      uniq_id: "puF2"
+  - address: 0x006e
+    type: sysreg
+    valtype: temperature
+    pollinterval: 300
+    discovery_topic: 'homeassistant/sensor/9FS9/config'
+    discovery_payload:
+      avty_t: 'rego/LWT'
+      name: 'Styrning GT1 målvärde'
+      dev:
+        identifiers:
+          - 009121
+      dev_cla: 'temperature'
+      stat_t: 'rego/0x006e/state'
+      unit_of_meas: "°C"
+      uniq_id: "9FS9"
+  - address: 0x006f
+    type: sysreg
+    valtype: temperature
+    pollinterval: 300
+    discovery_topic: 'homeassistant/sensor/d9H2/config'
+    discovery_payload:
+      avty_t: 'rego/LWT'
+      name: 'Styrning GT1 tillslag'
+      dev:
+        identifiers:
+          - 009121
+      dev_cla: 'temperature'
+      stat_t: 'rego/0x006f/state'
+      unit_of_meas: "°C"
+      uniq_id: "d9H2"
+  - address: 0x0070
+    type: sysreg
+    valtype: temperature
+    pollinterval: 300
+    discovery_topic: 'homeassistant/sensor/m5KW/config'
+    discovery_payload:
+      avty_t: 'rego/LWT'
+      name: 'Styrning GT1 frånslag'
+      dev:
+        identifiers:
+          - 009121
+      dev_cla: 'temperature'
+      stat_t: 'rego/0x0070/state'
+      unit_of_meas: "°C"
+      uniq_id: "m5KW"
+  - address: 0x0073
+    type: sysreg
+    valtype: temperature
+    pollinterval: 3600
+    discovery_topic: 'homeassistant/sensor/C6g1/config'
+    discovery_payload:
+      avty_t: 'rego/LWT'
+      name: 'Styrning GT3 tillslag'
+      dev:
+        identifiers:
+          - 009121
+      dev_cla: 'temperature'
+      stat_t: 'rego/0x0073/state'
+      unit_of_meas: "°C"
+      uniq_id: "C6g1"
+  - address: 0x0074
+    type: sysreg
+    valtype: temperature
+    pollinterval: 3600
+    discovery_topic: 'homeassistant/sensor/cE9F/config'
+    discovery_payload:
+      avty_t: 'rego/LWT'
+      name: 'Styrning GT3 frånslag'
+      dev:
+        identifiers:
+          - 009121
+      dev_cla: 'temperature'
+      stat_t: 'rego/0x0074/state'
+      unit_of_meas: "°C"
+      uniq_id: "cE9F"
+  - address: 0x01fd
+    type: sysreg
+    valtype: boolean
+    pollinterval: 60
+    discovery_topic: 'homeassistant/binary_sensor/15d0/config'
+    discovery_payload:
+      avty_t: 'rego/LWT'
+      name: 'Status köldbärarpump (P3)'
+      dev:
+        identifiers:
+          - 009121
+      dev_cla: 'running'
+      pl_on: 1
+      pl_off: 0
+      stat_t: 'rego/0x01fd/state'
+      uniq_id: "15d0"
+  - address: 0x01fe
+    type: sysreg
+    valtype: boolean
+    pollinterval: 60
+    discovery_topic: 'homeassistant/binary_sensor/47QK/config'
+    discovery_payload:
+      avty_t: 'rego/LWT'
+      name: 'Status kompressor'
+      dev:
+        identifiers:
+          - 009121
+      dev_cla: 'running'
+      pl_on: 1
+      pl_off: 0
+      stat_t: 'rego/0x01fe/state'
+      uniq_id: "47QK"
+  - address: 0x01ff
+    type: sysreg
+    valtype: boolean
+    pollinterval: 60
+    discovery_topic: 'homeassistant/binary_sensor/98PH/config'
+    discovery_payload:
+      avty_t: 'rego/LWT'
+      name: 'Status elpatron 3kW'
+      dev:
+        identifiers:
+          - 009121
+      dev_cla: 'running'
+      pl_on: 1
+      pl_off: 0
+      stat_t: 'rego/0x01ff/state'
+      uniq_id: "98PH"
+  - address: 0x0200
+    type: sysreg
+    valtype: boolean
+    pollinterval: 60
+    discovery_topic: 'homeassistant/binary_sensor/YS8C/config'
+    discovery_payload:
+      avty_t: 'rego/LWT'
+      name: 'Status elpatron 6kW'
+      dev:
+        identifiers:
+          - 009121
+      dev_cla: 'running'
+      pl_on: 1
+      pl_off: 0
+      stat_t: 'rego/0x0200/state'
+      uniq_id: "YS8C"
+  - address: 0x0203
+    type: sysreg
+    valtype: boolean
+    pollinterval: 60
+    discovery_topic: 'homeassistant/binary_sensor/q3G0/config'
+    discovery_payload:
+      avty_t: 'rego/LWT'
+      name: 'Status radiatorpump (P1)'
+      dev:
+        identifiers:
+          - 009121
+      dev_cla: 'running'
+      pl_on: 1
+      pl_off: 0
+      stat_t: 'rego/0x0203/state'
+      uniq_id: "q3G0"
+  - address: 0x0204
+    type: sysreg
+    valtype: boolean
+    pollinterval: 60
+    discovery_topic: 'homeassistant/binary_sensor/b30z/config'
+    discovery_payload:
+      avty_t: 'rego/LWT'
+      name: 'Status värmebärarpump (P2)'
+      dev:
+        identifiers:
+          - 009121
+      dev_cla: 'running'
+      pl_on: 1
+      pl_off: 0
+      stat_t: 'rego/0x0204/state'
+      uniq_id: "b30z"
+  - address: 0x0205
+    type: sysreg
+    valtype: boolean
+    pollinterval: 60
+    discovery_topic: 'homeassistant/binary_sensor/fO5N/config'
+    discovery_payload:
+      avty_t: 'rego/LWT'
+      name: 'Status trevägsventil (VXV)'
+      dev:
+        identifiers:
+          - 009121
+      dev_cla: 'opening'
+      pl_on: 1
+      pl_off: 0
+      stat_t: 'rego/0x0205/state'
+      uniq_id: "fO5N"
+  - address: 0x0206
+    type: sysreg
+    valtype: boolean
+    pollinterval: 60
+    discovery_topic: 'homeassistant/binary_sensor/Ilgo/config'
+    discovery_payload:
+      avty_t: 'rego/LWT'
+      name: 'Status alarm'
+      dev:
+        identifiers:
+          - 009121
+      dev_cla: 'problem'
+      pl_on: 1
+      pl_off: 0
+      stat_t: 'rego/0x0206/state'
+      uniq_id: "Ilgo"
+  - address: 0x0209
+    type: sysreg
+    valtype: temperature
+    pollinterval: 60
+    discovery_topic: 'homeassistant/sensor/jM14/config'
+    discovery_payload:
+      avty_t: 'rego/LWT'
+      name: 'Retur radiator (GT1)'
+      dev:
+        identifiers:
+          - 009121
+      dev_cla: 'temperature'
+      stat_t: 'rego/0x0209/state'
+      unit_of_meas: "°C"
+      uniq_id: "jM14"
+  - address: 0x020a
+    type: sysreg
+    valtype: temperature
+    pollinterval: 60
+    discovery_topic: 'homeassistant/sensor/hle1/config'
+    discovery_payload:
+      avty_t: 'rego/LWT'
+      name: 'Utomhustemperatur (GT2)'
+      dev:
+        identifiers:
+          - 009121
+      dev_cla: 'temperature'
+      stat_t: 'rego/0x020a/state'
+      unit_of_meas: "°C"
+      uniq_id: "hle1"
+  - address: 0x020d
+    type: sysreg
+    valtype: temperature
+    pollinterval: 60
+    discovery_topic: 'homeassistant/sensor/VI8r/config'
+    discovery_payload:
+      avty_t: 'rego/LWT'
+      name: 'Rumstemperatur (GT5)'
+      dev:
+        identifiers:
+          - 009121
+      dev_cla: 'temperature'
+      stat_t: 'rego/0x020d/state'
+      unit_of_meas: "°C"
+      uniq_id: "VI8r"
+  - address: 0x020e
+    type: sysreg
+    valtype: temperature
+    pollinterval: 60
+    discovery_topic: 'homeassistant/sensor/60Dm/config'
+    discovery_payload:
+      avty_t: 'rego/LWT'
+      name: 'Kompressortemperatur (GT6)'
+      dev:
+        identifiers:
+          - 009121
+      dev_cla: 'temperature'
+      stat_t: 'rego/0x020e/state'
+      unit_of_meas: "°C"
+      uniq_id: "60Dm"
+  - address: 0x020f
+    type: sysreg
+    valtype: temperature
+    pollinterval: 60
+    discovery_topic: 'homeassistant/sensor/bXFI/config'
+    discovery_payload:
+      avty_t: 'rego/LWT'
+      name: 'Temp. värmebärare ut (GT8)'
+      dev:
+        identifiers:
+          - 009121
+      dev_cla: 'temperature'
+      stat_t: 'rego/0x020f/state'
+      unit_of_meas: "°C"
+      uniq_id: "bXFI"
+  - address: 0x0210
+    type: sysreg
+    valtype: temperature
+    pollinterval: 60
+    discovery_topic: 'homeassistant/sensor/oREm/config'
+    discovery_payload:
+      avty_t: 'rego/LWT'
+      name: 'Temp. värmebärare in (GT9)'
+      dev:
+        identifiers:
+          - 009121
+      dev_cla: 'temperature'
+      stat_t: 'rego/0x0210/state'
+      unit_of_meas: "°C"
+      uniq_id: "oREm"
+  - address: 0x0211
+    type: sysreg
+    valtype: temperature
+    pollinterval: 60
+    discovery_topic: 'homeassistant/sensor/r9xT/config'
+    discovery_payload:
+      avty_t: 'rego/LWT'
+      name: 'Temp. köldbärare in (GT10)'
+      dev:
+        identifiers:
+          - 009121
+      dev_cla: 'temperature'
+      stat_t: 'rego/0x0211/state'
+      unit_of_meas: "°C"
+      uniq_id: "r9xT"
+  - address: 0x0212
+    type: sysreg
+    valtype: temperature
+    pollinterval: 60
+    discovery_topic: 'homeassistant/sensor/0cvQ/config'
+    discovery_payload:
+      avty_t: 'rego/LWT'
+      name: 'Temp. köldbärare ut (GT11)'
+      dev:
+        identifiers:
+          - 009121
+      dev_cla: 'temperature'
+      stat_t: 'rego/0x0212/state'
+      unit_of_meas: "°C"
+      uniq_id: "0cvQ"
+  - address: 0x0213
+    type: sysreg
+    valtype: temperature
+    pollinterval: 60
+    discovery_topic: 'homeassistant/sensor/qsF3/config'
+    discovery_payload:
+      avty_t: 'rego/LWT'
+      name: 'Temp. varmvatten (GT3)'
+      dev:
+        identifiers:
+          - 009121
+      dev_cla: 'temperature'
+      stat_t: 'rego/0x0213/state'
+      unit_of_meas: "°C"
+      uniq_id: "qsF3"
